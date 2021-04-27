@@ -1,6 +1,13 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar"
+import Main from "./pages/Main/Main"
+import Projectors from "./pages/Projectors/Projectors"
+import Screens from "./pages/Screens/Screens"
+import Audio from "./pages/Audio/Audio"
+import Computers from "./pages/Computers/Computers"
+import Misc from "./pages/Misc/Misc"
+import Cart from "./pages/Cart/Cart"
 
 
 function App() {
@@ -9,25 +16,25 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/projection">
-          <h1>This is the projection page</h1>
+          <Projectors />
         </Route>
         <Route path="/audio">
-          <h1>This is the audio page</h1>
+          <Audio />
         </Route>
         <Route path="/computers">
-          <h1>This is the computers page</h1>
+          <Computers />
         </Route>
         <Route path="/screens">
-          <h1>This is the screens page</h1>
+          <Screens />
         </Route>
         <Route path="/misc">
-          <h1>This is the misc page</h1>
+         <Misc />
         </Route>
          <Route path="/cart">
-          <h1>This is the cart page</h1>
+          <Cart />
         </Route>
         <Route exact path="/">
-          <h1>This is the main page</h1>
+         <Main />
         </Route>
       </Switch>
     </Router>

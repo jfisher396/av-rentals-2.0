@@ -15,6 +15,9 @@ export default function Navbar() {
               <Link to="/screens" className="nav-link active" aria-current="page">Screens</Link>
             </li>
             <li className="nav-item">
+              <Link to="/computers" className="nav-link active" aria-current="page">Computers</Link>
+            </li>
+            <li className="nav-item">
               <Link to="/audio" className="nav-link active" aria-current="page">Audio</Link>
             </li>
             <li className="nav-item">

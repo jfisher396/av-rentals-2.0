@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+
+  const location = useLocation();
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -9,22 +11,22 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/projection" className="nav-link active" aria-current="page">Projectors</Link>
+              <Link to="/projection" className={location.pathname === "/projection" ? "nav-link active" : "nav-link"} aria-current="page">Projectors</Link>
             </li>
             <li className="nav-item">
-              <Link to="/screens" className="nav-link active" aria-current="page">Screens</Link>
+              <Link to="/screens" className={location.pathname === "/screens" ? "nav-link active" : "nav-link"} aria-current="page">Screens</Link>
             </li>
             <li className="nav-item">
-              <Link to="/computers" className="nav-link active" aria-current="page">Computers</Link>
+              <Link to="/computers" className={location.pathname === "/computers" ? "nav-link active" : "nav-link"} aria-current="page">Computers</Link>
             </li>
             <li className="nav-item">
-              <Link to="/audio" className="nav-link active" aria-current="page">Audio</Link>
+              <Link to="/audio" className={location.pathname === "/audio" ? "nav-link active" : "nav-link"} aria-current="page">Audio</Link>
             </li>
             <li className="nav-item">
-              <Link to="/misc" className="nav-link active" aria-current="page">Misc AV</Link>
+              <Link to="/misc" className={location.pathname === "/misc" ? "nav-link active" : "nav-link"} aria-current="page">Misc AV</Link>
             </li>
             <li className="nav-item">
-              <Link to="/cart" className="nav-link active" aria-current="page">Cart</Link>
+              <Link to="/cart" className={location.pathname === "/cart" ? "nav-link active" : "nav-link"} aria-current="page">Cart</Link>
             </li>
           </ul>
         </div>

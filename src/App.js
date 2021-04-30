@@ -1,5 +1,5 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from "./components/Navbar/Navbar"
 import Main from "./pages/Main/Main"
 import Projectors from "./pages/Projectors/Projectors"

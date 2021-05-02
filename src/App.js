@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/projection">
+        <Route path="/projectors">
           <Projectors />
         </Route>
         <Route path="/audio">

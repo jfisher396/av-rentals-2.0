@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/projection" className={location.pathname === "/projection" ? "nav-link active" : "nav-link"} aria-current="page">Projectors</Link>
+              <Link to="/projectors" className={location.pathname === "/projectors" ? "nav-link active" : "nav-link"} aria-current="page">Projectors</Link>
             </li>
             <li className="nav-item">
               <Link to="/screens" className={location.pathname === "/screens" ? "nav-link active" : "nav-link"} aria-current="page">Screens</Link>

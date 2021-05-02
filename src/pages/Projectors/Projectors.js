@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
-import Table from "../../components/Table/Table"
+import React, { Component } from "react";
+// import Card from "../../components/Card/Card"
+import Container from "../../components/Container/Container";
+import Card from "../../components/Card/Card"
 
-export default class Projectors extends Component {
-    render() {
-        return (
-            <div>
-                <h1>This is the projectors page</h1>
-                <Table />
-            </div>
-        )
-    }
+class Projectors extends Component {
+  render() {
+    return (
+      <Container>
+          <h1>This is the projectors page</h1>
+            <Card />
+      </Container>
+    );
+  }
 }
+
+export default Projectors

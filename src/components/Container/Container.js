@@ -1,13 +1,12 @@
 import React from "react";
+import "./Container.css"
 
 function Container(props) {
   return (
     <div
-      className="container-sm"
+      className="Container container-sm"
       style={{
-        backgroundColor: "lightblue",
-        minWidth: "1200px",
-        minHeight: "800px",
+        backgroundColor: "lightblue"
       }}
       {...props}
     ></div>

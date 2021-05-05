@@ -8,6 +8,7 @@ import Audio from "./pages/Audio/Audio"
 import Computers from "./pages/Computers/Computers"
 import Misc from "./pages/Misc/Misc"
 import Cart from "./pages/Cart/Cart"
+import "./App.css"
 
 
 function App() {

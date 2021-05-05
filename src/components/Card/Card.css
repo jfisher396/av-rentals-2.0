@@ -15,7 +15,8 @@
 }
 
 .card-description {
-    height: 136px;
+    height: 150px;
+    overflow: auto;
 }
 
 .list-group-item {

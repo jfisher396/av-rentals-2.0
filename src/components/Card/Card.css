@@ -1,5 +1,6 @@
 .Card {
-  margin-top: 20px;
+  margin-top: 15px;
+  /* margin-bottom: 10px; */
   justify-content: space-between;
 }
 
@@ -9,6 +10,15 @@
   object-fit: scale-down;
 }
 
+.card-description {
+    height: 136px;
+}
+
+.list-group-item {
+  color: rgb(87, 87, 87);
+}
+
 .card-links {
   max-height: 75px;
+  text-align: center;
 }

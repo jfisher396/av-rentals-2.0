@@ -5,9 +5,6 @@ function Container(props) {
   return (
     <div
       className="Container container-sm"
-      style={{
-        backgroundColor: "lightblue"
-      }}
       {...props}
     ></div>
   );

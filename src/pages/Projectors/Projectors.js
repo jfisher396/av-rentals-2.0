@@ -24,7 +24,7 @@ class Projectors extends Component {
             image2={item.image2}
             model={item.model}
             description={item.description}
-            lumens={item.lumens}
+            indicator={item.lumens}
             price={item.price}
             label1={"Brightness: "}
             label2={" Lumens"}

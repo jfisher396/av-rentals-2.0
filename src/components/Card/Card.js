@@ -11,7 +11,7 @@ function Card(props) {
                 <p className="card-text">{props.description}</p>
             </div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item"><span className="bold">{props.label1}</span>{props.lumens}{props.label2}</li>
+                <li className="list-group-item"><span className="bold">{props.label1}</span>{props.indicator}{props.label2}</li>
                 <li className="list-group-item"><span className="bold">{"Daily rate: "}</span>{"$"}{props.price}</li>
             </ul>
             <div className="card-links card-body">

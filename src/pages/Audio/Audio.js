@@ -1,13 +1,37 @@
-import React, { Component } from 'react'
-import Table from "../../components/Table/Table"
+import React, { Component } from "react";
+import Container from "../../components/Container/Container";
+import Card from "../../components/Card/Card";
+import API from "../../utils/API";
 
 export default class Audio extends Component {
-    render() {
-        return (
-            <div>
-                 <h1>This is the audio page</h1>
-                 <Table />
-            </div>
-        )
-    }
+  state = {
+    audio: [],
+  };
+
+  componentDidMount() {
+
+    
+    API.getAllAudio().then((res) => {
+        console.log(res)
+      this.setState({ audio: res.data });
+    });
+  }
+
+  render() {
+    return (
+      <Container>
+        {this.state.audio.map((item) => (
+          <Card
+            key={item.id}
+            image1={item.image1}
+            model={item.model}
+            description={item.description}
+            // indicator={item.screenSize}
+            price={item.rate}
+            label1={"Screen Size: "}
+          />
+        ))}
+      </Container>
+    );
+  }
 }

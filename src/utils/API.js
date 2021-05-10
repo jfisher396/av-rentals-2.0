@@ -12,6 +12,10 @@ const API = {
   getAllComputers: function () {
     return axios.get("http://localhost:8080/api/computers");
   },
+
+  getAllAudio: function () {
+    return axios.get("http://localhost:8080/api/audio");
+  },
 };
 
 export default API;

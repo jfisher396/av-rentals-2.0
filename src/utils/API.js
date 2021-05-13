@@ -21,8 +21,8 @@ const API = {
     return axios.get("http://localhost:8080/api/misc");
   },
 
-  saveUser: function (userData) {
-    return axios.post("http://localhost:8080/api/users", userData)
+  newUser: function (userData) {
+    return axios.post("http://localhost:8080/api/users/signup", userData)
   },
 
   getAllUsers: function () {

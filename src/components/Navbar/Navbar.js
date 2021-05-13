@@ -20,8 +20,8 @@ export default function Navbar() {
 
   const saveUserButton = (event) => {
     event.preventDefault();
-    API.saveUser(userData).then((res) => {
-      console.log("User saved: ", res);
+    API.newUser(userData).then((res) => {
+      console.log("User saved: ", res.data);
     });
     setUserData({
       email: "",

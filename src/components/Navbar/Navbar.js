@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css"
+import LoginForm from "../../components/loginForm/loginForm"
 
 export default function Navbar() {
 
@@ -31,6 +32,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        <LoginForm />
       </div>
     </nav>
   );

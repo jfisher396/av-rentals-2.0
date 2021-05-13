@@ -9,10 +9,7 @@ export default class Audio extends Component {
   };
 
   componentDidMount() {
-
-    
     API.getAllAudio().then((res) => {
-        console.log(res)
       this.setState({ audio: res.data });
     });
   }
@@ -28,7 +25,7 @@ export default class Audio extends Component {
             description={item.description}
             // indicator={item.screenSize}
             price={item.rate}
-            label1={"Screen Size: "}
+            // label1={"Screen Size: "}
           />
         ))}
       </Container>

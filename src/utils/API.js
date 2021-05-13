@@ -16,6 +16,10 @@ const API = {
   getAllAudio: function () {
     return axios.get("http://localhost:8080/api/audio");
   },
+  
+  getAllMisc: function () {
+    return axios.get("http://localhost:8080/api/misc");
+  },
 };
 
 export default API;

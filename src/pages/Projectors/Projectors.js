@@ -5,14 +5,14 @@ import API from "../../utils/API";
 
 class Projectors extends Component {
   state = {
-    projectors: []
-  }
+    projectors: [],
+  };
 
   componentDidMount() {
-    API.getAllProjectors().then(res => {
-     this.setState({ projectors: res.data })
-    }
-    )}
+    API.getAllProjectors().then((res) => {
+      this.setState({ projectors: res.data });
+    });
+  }
 
   render() {
     return (

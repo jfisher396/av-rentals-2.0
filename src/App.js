@@ -8,6 +8,7 @@ import Audio from "./pages/Audio/Audio"
 import Computers from "./pages/Computers/Computers"
 import Misc from "./pages/Misc/Misc"
 import Cart from "./pages/Cart/Cart"
+import Register from "./pages/Register/Register"
 import "./App.css"
 
 
@@ -31,8 +32,11 @@ function App() {
         <Route path="/misc">
          <Misc />
         </Route>
-         <Route path="/cart">
+        <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route exact path="/">
          <Main />

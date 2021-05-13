@@ -23,6 +23,10 @@ export default function Navbar() {
     API.saveUser(userData).then((res) => {
       console.log("User saved: ", res);
     });
+    setUserData({
+      email: "",
+      password: ""
+    })
   };
 
   const location = useLocation();

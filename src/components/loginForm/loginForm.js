@@ -24,10 +24,6 @@ function LoginForm(props) {
       <button type="submit"  className="btn btn-primary">
         Login
       </button>
-      <div className="mb-3 form-check ">
-        <input type="checkbox" className="form-check-input" id="needToRegister" name="needToRegister" />
-        <label className="form-check-label" for="needToRegister">Need to register</label>
-      </div>
     </form>
   );
 }

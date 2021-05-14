@@ -25,9 +25,9 @@ const API = {
     return axios.post("http://localhost:8080/api/users/signup", userData)
   },
 
-  getAllUsers: function () {
-    return axios.get("http://localhost:8080/api/users");
-  },
+  userLogin: function (loginData) {
+    return axios.post("http://localhost:8080/api/users/login", loginData)
+  }
 };
 
 export default API;

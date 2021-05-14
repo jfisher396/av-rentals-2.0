@@ -2,10 +2,10 @@ import React from "react";
 
 function LoginForm(props) {
   return (
-    <form className="input-group w-25" onSubmit={props.saveUser}>
+    <form className="input-group w-25" onSubmit={props.loginButton}>
       <input
         onChange={props.handleInputChange}
-        value={props.userData.email}
+        value={props.loginData.email}
         type="email"
         name="email"
         className="form-control"
@@ -14,7 +14,7 @@ function LoginForm(props) {
       />
       <input
         onChange={props.handleInputChange}
-        value={props.userData.password}
+        value={props.loginData.password}
         type="password"
         name="password"
         className="form-control"

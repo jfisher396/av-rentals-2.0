@@ -1,33 +1,45 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import LoginForm from "../../components/loginForm/loginForm";
+import LoginForm from "../loginForm/LoginForm";
 import API from "../../utils/API";
 
 export default function Navbar() {
-  const [userData, setUserData] = useState({
+  const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserData({
-      ...userData,
+    setLoginFormData({
+      ...loginFormData,
       [name]: value,
     });
   };
 
-  const saveUserButton = (event) => {
+  const loginButtonHandler = (event) => {
     event.preventDefault();
-    API.newUser(userData).then((res) => {
-      console.log("User saved: ", res.data);
-    });
-    setUserData({
+    console.log("login button clicked");
+    API.userLogin(loginFormData).then((res) => {
+      console.log("Logged in: ", res.data)
+    })
+    setLoginFormData({
       email: "",
       password: ""
     })
-  };
+  }
+
+  // const saveUserButton = (event) => {
+  //   event.preventDefault();
+  //   API.newUser(userData).then((res) => {
+  //     console.log("User saved: ", res.data);
+  //   });
+  //   setUserData({
+  //     email: "",
+  //     password: ""
+  //   })
+  // };
 
   const location = useLocation();
 
@@ -96,9 +108,9 @@ export default function Navbar() {
           </ul>
         </div>
         <LoginForm
-          userData={userData}
+          loginData={loginFormData}
           handleInputChange={handleInputChange}
-          saveUser={saveUserButton}
+          loginButton={loginButtonHandler}
         />
       </div>
     </nav>

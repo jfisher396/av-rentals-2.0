@@ -17,16 +17,18 @@ class Register extends Component {
   };
 
   handleSubmitButton = (event) => {
-      event.preventDefault()
-      API.newUser(this.state).then(() => {
+    event.preventDefault();
+    API.newUser(this.state)
+      .then(() => {
         this.setState({
-            email: "",
-            password: ""
-        })
-        
-    });
-
-  }
+          email: "",
+          password: "",
+        });
+      })
+      .catch((err) => {
+        alert("Login failed");
+      });
+  };
 
   render() {
     return (

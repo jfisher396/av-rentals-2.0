@@ -26,7 +26,11 @@ const API = {
   },
 
   userLogin: function (loginData) {
-    return axios.post("http://localhost:8080/api/users/login", loginData)
+    return axios.post("http://localhost:8080/api/users/login", loginData, {withCredentials: true})
+  },
+
+  getCurrentUser: function() {
+    return axios.get("http://localhost:8080/api/users/readsessions", {withCredentials: true})
   }
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import LoginForm from "../loginForm/LoginForm";
@@ -9,6 +9,15 @@ export default function Navbar() {
     email: "",
     password: "",
   });
+
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    API.getCurrentUser().then((res) => {
+      console.log(res.data);
+      setCurrentUser(res.data.user)
+    })
+  }, [])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -95,11 +104,12 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        {currentUser ? <span>Logged in as {currentUser.email}</span> : 
         <LoginForm
           loginData={loginFormData}
           handleInputChange={handleInputChange}
           loginButton={loginButtonHandler}
-        />
+        />}
       </div>
     </nav>
   );

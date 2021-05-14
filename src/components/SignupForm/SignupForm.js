@@ -2,16 +2,17 @@ import React from "react";
 
 function SignupForm(props) {
   return (
-    <form>
+    <form onSubmit={props.handleSubmit}>
       <div className="mb-3">
         <label for="email" className="form-label">
           Email address
         </label>
         <input
+          onChange={props.handleInputChange}
+          value={props.newUserEmail}
           type="email"
           name="email"
           className="form-control"
-          id="exampleInputEmail1"
           aria-describedby="emailHelp"
         />
         <div id="emailHelp" className="form-text">
@@ -23,10 +24,11 @@ function SignupForm(props) {
           Password
         </label>
         <input
+          onChange={props.handleInputChange}
+          value={props.newUserPassword}
           type="password"
           name="password"
           className="form-control"
-          id="exampleInputPassword1"
         />
       </div>
 

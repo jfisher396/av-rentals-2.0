@@ -20,7 +20,6 @@ export default function Navbar() {
 
   const loginButtonHandler = (event) => {
     event.preventDefault();
-    console.log("login button clicked");
     API.userLogin(loginFormData).then((res) => {
       console.log("Logged in: ", res.data)
     })
@@ -29,17 +28,6 @@ export default function Navbar() {
       password: ""
     })
   }
-
-  // const saveUserButton = (event) => {
-  //   event.preventDefault();
-  //   API.newUser(userData).then((res) => {
-  //     console.log("User saved: ", res.data);
-  //   });
-  //   setUserData({
-  //     email: "",
-  //     password: ""
-  //   })
-  // };
 
   const location = useLocation();
 

@@ -32,14 +32,14 @@ export default function Navbar() {
   const loginButtonHandler = (event) => {
     event.preventDefault();
     API.userLogin(loginFormData).then((res) => {
-      console.log("Logged in: ", res.data)
+      console.log("Logged in: ", res.data);
+      window.location.reload(false)
     })
     setLoginFormData({
       email: "",
-      password: ""
+      password: "",
     })
-    window.location.reload(true);
-  }
+  };
 
   const location = useLocation();
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import LoginForm from "../loginForm/LoginForm";
+import LoginForm from "../LoginForm/LoginForm";
 import API from "../../utils/API";
 
 export default function Navbar() {
@@ -14,8 +14,8 @@ export default function Navbar() {
 
   useEffect(() => {
     API.getCurrentUser().then((res) => {
-      console.log(res.data);
       setCurrentUser(res.data.user)
+      
     })
   }, [])
 
@@ -25,6 +25,8 @@ export default function Navbar() {
       ...loginFormData,
       [name]: value,
     });
+
+    
   };
 
   const loginButtonHandler = (event) => {
@@ -36,6 +38,7 @@ export default function Navbar() {
       email: "",
       password: ""
     })
+    window.location.reload(true);
   }
 
   const location = useLocation();

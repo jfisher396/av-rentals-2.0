@@ -40,6 +40,6 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["API_URL_PREFIX"]
+    "whitelist": ["API_URL_PREFIX_LOCAL", "API_URL_PREFIX_DEPLOYED"]
   }
 }

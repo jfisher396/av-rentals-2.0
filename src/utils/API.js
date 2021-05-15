@@ -1,7 +1,8 @@
 
 const axios = require("axios");
 
-const urlPrefix = window.env.API_URL_PREFIX;
+const urlPrefix = window.env.API_URL_PREFIX_LOCAL;
+// const urlPrefix = window.env.API_URL_PREFIX_DEPLOYED;
 
 const API = {
   getAllProjectors: function () {

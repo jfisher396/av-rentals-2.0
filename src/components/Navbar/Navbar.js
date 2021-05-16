@@ -12,12 +12,12 @@ export default function Navbar() {
 
   const [currentUser, setCurrentUser] = useState();
 
+  
   useEffect(() => {
     API.getCurrentUser().then((res) => {
-      setCurrentUser(res.data.user)
-      
-    })
-  }, [])
+      setCurrentUser(res.data.user);
+    });
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,8 +25,6 @@ export default function Navbar() {
       ...loginFormData,
       [name]: value,
     });
-
-    
   };
 
   const loginButtonHandler = (event) => {
@@ -49,7 +47,7 @@ export default function Navbar() {
         <Link to="/" className="navbar-brand" href="#">
           AV Rentals
         </Link>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
@@ -107,12 +105,21 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        {currentUser ? <span>Logged in as {currentUser.email}</span> : 
+        {currentUser ? <span>Logged in as {currentUser.email}</span> :
+        <div>
         <LoginForm
           loginData={loginFormData}
           handleInputChange={handleInputChange}
           loginButton={loginButtonHandler}
-        />}
+        />
+        <div className="register-link">
+          <p id="register-link-label">Not a registered user?</p>
+          <Link to="/register">Register</Link>
+        </div>
+        </div> 
+        }
+        
+        
       </div>
     </nav>
   );

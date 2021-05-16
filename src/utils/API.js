@@ -35,6 +35,10 @@ const API = {
 
   getCurrentUser: function() {
     return axios.get(`${urlPrefix}/api/users/readsessions`, {withCredentials: true})
+  },
+
+  getCurrentOrders: function() {
+    return axios.get(`${urlPrefix}/api/users/currentuserdata`, {withCredentials: true})
   }
 };
 

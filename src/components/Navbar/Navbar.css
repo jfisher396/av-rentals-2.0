@@ -1,3 +1,13 @@
 .navbar {
-    min-height: 100px;
+  min-height: 110px;
+}
+
+.register-link {
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#register-link-label {
+  padding-right: 20px;
 }

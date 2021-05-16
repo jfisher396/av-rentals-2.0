@@ -2,7 +2,7 @@ import React from "react";
 
 function LoginForm(props) {
   return (
-    <form className="input-group w-25" onSubmit={props.loginButton}>
+    <form id="login-form" className="input-group" onSubmit={props.loginButton}>
       <input
         onChange={props.handleInputChange}
         value={props.loginData.email}

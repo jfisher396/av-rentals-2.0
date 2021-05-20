@@ -31,7 +31,6 @@ function SignupForm(props) {
           className="form-control"
         />
       </div>
-
       <button type="submit" className="btn btn-primary">
         Submit
       </button>

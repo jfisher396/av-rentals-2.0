@@ -18,16 +18,22 @@ class Register extends Component {
 
   handleSubmitButton = (event) => {
     event.preventDefault();
-    API.newUser(this.state)
+    if (this.state.email && this.state.password) {
+      API.newUser(this.state)
       .then(() => {
         this.setState({
           email: "",
           password: "",
-        });
+        })
+        alert("Thank you for registering! Please login at the top of the page.")
       })
       .catch((err) => {
-        alert("Login failed");
+        alert("Registration failed. Email already in use.");
       });
+    } else {
+      alert('Please enter a valid email and password.')
+    }
+    
   };
 
   render() {
@@ -40,6 +46,7 @@ class Register extends Component {
             handleSubmit={this.handleSubmitButton}
             newUserEmail={this.state.email}
             newUserPassword={this.state.password}
+            
           />
         </Container>
       </div>

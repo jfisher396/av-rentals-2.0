@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from "./components/Navbar/Navbar"
 import Main from "./pages/Main/Main"
@@ -10,12 +10,47 @@ import Misc from "./pages/Misc/Misc"
 import Cart from "./pages/Cart/Cart"
 import Register from "./pages/Register/Register"
 import "./App.css"
+import API from "./utils/API";
 
 
 function App() {
+
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    API.getCurrentUser().then((res) => {
+      setCurrentUser(res.data.user);
+    });
+  }, []);
+
+  const handleLoginInputChange = (event) => {
+    const { name, value } = event.target;
+    setLoginFormData({
+      ...loginFormData,
+      [name]: value,
+    });
+  };
+
+  const handleLoginFormSubmit = (event) => {
+    event.preventDefault();
+    API.userLogin(loginFormData).then((res) => {
+      console.log("Logged in: ", res.data);
+      window.location.reload(false)
+    })
+    setLoginFormData({
+      email: "",
+      password: "",
+    })
+  };
+
   return (
     <Router>
-      <Navbar />
+      <Navbar currentUser={currentUser} loginFormData={loginFormData} inputChange={handleLoginInputChange} loginSubmit={handleLoginFormSubmit}/>
       <Switch>
         <Route path="/projectors">
           <Projectors />

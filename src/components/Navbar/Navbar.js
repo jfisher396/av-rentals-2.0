@@ -1,43 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import LoginForm from "../LoginForm/LoginForm";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
-export default function Navbar() {
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [currentUser, setCurrentUser] = useState();
-
-  
-  useEffect(() => {
-    API.getCurrentUser().then((res) => {
-      setCurrentUser(res.data.user);
-    });
-  }, []);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setLoginFormData({
-      ...loginFormData,
-      [name]: value,
-    });
-  };
-
-  const loginButtonHandler = (event) => {
-    event.preventDefault();
-    API.userLogin(loginFormData).then((res) => {
-      console.log("Logged in: ", res.data);
-      window.location.reload(false)
-    })
-    setLoginFormData({
-      email: "",
-      password: "",
-    })
-  };
+function Navbar(props) {
 
   const location = useLocation();
 
@@ -105,12 +72,12 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        {currentUser ? <span>Logged in as {currentUser.email}</span> :
+        {props.currentUser ? <span>Logged in as {props.currentUser.email}</span> :
         <div>
         <LoginForm
-          loginData={loginFormData}
-          handleInputChange={handleInputChange}
-          loginButton={loginButtonHandler}
+          loginData={props.loginFormData}
+          handleInputChange={props.inputChange}
+          loginButton={props.loginSubmit}
         />
         <div className="register-link">
           <p id="register-link-label">Not a registered user?</p>
@@ -124,3 +91,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar

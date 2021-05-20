@@ -39,6 +39,9 @@ const API = {
 
   getCurrentOrders: function() {
     return axios.get(`${urlPrefix}/api/users/currentuserdata`, {withCredentials: true})
+  },
+  userLogout: function() {
+    return axios.get(`${urlPrefix}/api/users/logout`, { withCredentials: true })
   }
 };
 

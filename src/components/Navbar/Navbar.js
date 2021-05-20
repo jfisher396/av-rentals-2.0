@@ -71,7 +71,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        {props.currentUser ? <span>Logged in as {props.currentUser.email}</span> :
+        {props.currentUser ? <><span>Logged in as {props.currentUser.email}</span><button className="btn btn-primary" onClick={props.logout}>Logout</button></> :
         <div>
         <LoginForm
           loginData={props.loginFormData}
@@ -82,7 +82,9 @@ function Navbar(props) {
           <p id="register-link-label">Not a registered user?</p>
           <Link to="/register">Register</Link>
         </div>
+        {props.currentUser ? <button onClick={props.logout}>Logout</button> : null}
         </div> 
+        
         }
         
         

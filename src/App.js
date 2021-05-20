@@ -40,13 +40,11 @@ function App() {
     event.preventDefault();
     API.userLogin(loginFormData)
       .then((res) => {
-        console.log("Logged in: ", res.data);
         setLoginFormData({
           email: "",
           password: "",
         });
         API.getCurrentUser().then((res) => {
-          console.log(res.data);
           setCurrentUser(res.data.user);
         });
         window.location.reload(false);
@@ -56,9 +54,15 @@ function App() {
       });
   };
 
+  const userLogout = ()=>{
+        API.userLogout().then(res=>{
+          setCurrentUser();
+        })
+    }
+
   return (
     <Router>
-      <Navbar currentUser={currentUser} loginFormData={loginFormData} inputChange={handleLoginInputChange} loginSubmit={handleLoginFormSubmit}/>
+      <Navbar currentUser={currentUser} loginFormData={loginFormData} inputChange={handleLoginInputChange} loginSubmit={handleLoginFormSubmit} logout={userLogout}/>
       <Switch>
         <Route path="/projectors">
           <Projectors />

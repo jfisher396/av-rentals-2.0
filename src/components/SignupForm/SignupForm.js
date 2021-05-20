@@ -4,7 +4,7 @@ function SignupForm(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className="mb-3">
-        <label for="email" className="form-label">
+        <label htmlFor="email" className="form-label">
           Email address
         </label>
         <input
@@ -20,7 +20,7 @@ function SignupForm(props) {
         </div>
       </div>
       <div className="mb-3">
-        <label for="password" className="form-label">
+        <label htmlFor="password" className="form-label">
           Password
         </label>
         <input

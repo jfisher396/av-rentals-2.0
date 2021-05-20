@@ -38,14 +38,22 @@ function App() {
 
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
-    API.userLogin(loginFormData).then((res) => {
-      console.log("Logged in: ", res.data);
-      window.location.reload(false)
-    })
-    setLoginFormData({
-      email: "",
-      password: "",
-    })
+    API.userLogin(loginFormData)
+      .then((res) => {
+        console.log("Logged in: ", res.data);
+        setLoginFormData({
+          email: "",
+          password: "",
+        });
+        API.getCurrentUser().then((res) => {
+          console.log(res.data);
+          setCurrentUser(res.data.user);
+        });
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        alert("login failed");
+      });
   };
 
   return (

@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import LoginForm from "../LoginForm/LoginForm";
-// import API from "../../utils/API";
 
 function Navbar(props) {
 

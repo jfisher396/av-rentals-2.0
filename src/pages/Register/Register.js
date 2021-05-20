@@ -26,9 +26,14 @@ class Register extends Component {
           password: "",
         })
         alert("Thank you for registering! Please login at the top of the page.")
+        
       })
       .catch((err) => {
         alert("Registration failed. Email already in use.");
+        this.setState({
+          email: "",
+          password: "",
+        })
       });
     } else {
       alert('Please enter a valid email and password.')

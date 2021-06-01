@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class Cart extends Component {
-  render() {
+function Cart() {
+  const [cartData, setCartData] = useState([]);
+
+
+
     return (
       <div>
         <h1>This is the cart page</h1>
       </div>
     );
   }
-}
+
+export default Cart

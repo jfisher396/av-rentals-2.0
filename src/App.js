@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navbar from "./components/Navbar/Navbar"
-import Main from "./pages/Main/Main"
-import Projectors from "./pages/Projectors/Projectors"
-import Screens from "./pages/Screens/Screens"
-import Audio from "./pages/Audio/Audio"
-import Computers from "./pages/Computers/Computers"
-import Misc from "./pages/Misc/Misc"
-import Cart from "./pages/Cart/Cart"
-import Register from "./pages/Register/Register"
-import "./App.css"
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Main from "./pages/Main/Main";
+import Projectors from "./pages/Projectors/Projectors";
+import Screens from "./pages/Screens/Screens";
+import Audio from "./pages/Audio/Audio";
+import Computers from "./pages/Computers/Computers";
+import Misc from "./pages/Misc/Misc";
+import Cart from "./pages/Cart/Cart";
+import Register from "./pages/Register/Register";
+import "./App.css";
 import API from "./utils/API";
 
-
 function App() {
-
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
@@ -54,15 +52,21 @@ function App() {
       });
   };
 
-  const userLogout = ()=>{
-        API.userLogout().then(res=>{
-          setCurrentUser();
-        })
-    }
+  const userLogout = () => {
+    API.userLogout().then((res) => {
+      setCurrentUser();
+    });
+  };
 
   return (
     <Router>
-      <Navbar currentUser={currentUser} loginFormData={loginFormData} inputChange={handleLoginInputChange} loginSubmit={handleLoginFormSubmit} logout={userLogout}/>
+      <Navbar
+        currentUser={currentUser}
+        loginFormData={loginFormData}
+        inputChange={handleLoginInputChange}
+        loginSubmit={handleLoginFormSubmit}
+        logout={userLogout}
+      />
       <Switch>
         <Route path="/projectors">
           <Projectors />
@@ -77,7 +81,7 @@ function App() {
           <Screens />
         </Route>
         <Route path="/misc">
-         <Misc />
+          <Misc />
         </Route>
         <Route path="/cart">
           <Cart />
@@ -86,7 +90,7 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/">
-         <Main />
+          <Main />
         </Route>
       </Switch>
     </Router>

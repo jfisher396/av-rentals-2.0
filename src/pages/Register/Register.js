@@ -1,37 +1,40 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Container from "../../components/Container/Container";
 import SignupForm from "../../components/SignupForm/SignupForm";
 import API from "../../utils/API";
 
-class Register extends Component {
-  state = {
+function Register() {
+  const [registerData, setRegisterData] = useState({
     email: "",
     password: "",
-  };
-
-  handleInputChange = (event) => {
+  })
+  
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
+    setRegisterData({
+      ...registerData,
       [name]: value,
     });
   };
 
-  handleSubmitButton = (event) => {
+  const handleSubmitButton = (event) => {
     event.preventDefault();
-    if (this.state.email && this.state.password) {
+    
+    if (registerData.email && registerData.password) {
       API.newUser(this.state)
         .then(() => {
-          this.setState({
+          setRegisterData({
             email: "",
             password: "",
           });
           alert(
             "Thank you for registering! Please login at the top of the page."
           );
+          
         })
         .catch((err) => {
           alert("Registration failed. Email already in use.");
-          this.setState({
+          setRegisterData({
             email: "",
             password: "",
           });
@@ -41,21 +44,21 @@ class Register extends Component {
     }
   };
 
-  render() {
+  
     return (
       <div>
         <Container>
           <h1>Registration</h1>
           <SignupForm
-            handleInputChange={this.handleInputChange}
-            handleSubmit={this.handleSubmitButton}
-            newUserEmail={this.state.email}
-            newUserPassword={this.state.password}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmitButton}
+            newUserEmail={registerData.email}
+            newUserPassword={registerData.password}
           />
         </Container>
       </div>
     );
   }
-}
+
 
 export default Register;
